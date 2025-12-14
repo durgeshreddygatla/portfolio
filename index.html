@@ -1,0 +1,1141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-QEBEEZ7TVC"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-QEBEEZ7TVC');
+    </script>
+    
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio | Durgesh Reddy</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Font Awesome CDN -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        'inter': ['Inter', 'sans-serif'],
+                    },
+                    animation: {
+                        'fade-in': 'fadeIn 0.5s ease-in-out',
+                        'slide-up': 'slideUp 0.6s ease-out',
+                        'float': 'float 3s ease-in-out infinite',
+                        'pulse-slow': 'pulse 3s cubic-bezier(0.4, 0, 0.6, 1) infinite',
+                    },
+                    keyframes: {
+                        fadeIn: {
+                            '0%': { opacity: '0' },
+                            '100%': { opacity: '1' },
+                        },
+                        slideUp: {
+                            '0%': { transform: 'translateY(20px)', opacity: '0' },
+                            '100%': { transform: 'translateY(0)', opacity: '1' },
+                        },
+                        float: {
+                            '0%, 100%': { transform: 'translateY(0px)' },
+                            '50%': { transform: 'translateY(-10px)' },
+                        },
+                    },
+                }
+            }
+        }
+    </script>
+    <style>
+        .flip-card {
+            width: 100%;
+            height: 320px;
+            position: relative;
+            perspective: 1000px;
+        }
+        .flip-card-inner {
+            position: relative;
+            width: 100%;
+            height: 100%;
+            transition: transform 0.6s;
+            transform-style: preserve-3d;
+        }
+        .flip-card:hover .flip-card-inner {
+            transform: rotateY(180deg);
+        }
+        .flip-card-front, .flip-card-back {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            border-radius: 1rem;
+            backface-visibility: hidden;
+            -webkit-backface-visibility: hidden;
+            top: 0;
+            left: 0;
+        }
+        .flip-card-back {
+            transform: rotateY(180deg);
+        }
+    </style>
+    </script>
+</head>
+<body class="font-inter text-white min-h-screen relative">
+    <!-- Animated Background -->
+    <div>
+        <!-- Background Layer -->
+        <div class="fixed inset-0 -z-10 overflow-hidden">
+            <div class="absolute inset-0 bg-gradient-to-br from-indigo-900 via-purple-900 to-pink-900"></div>
+
+            <div class="absolute inset-0 opacity-20 bg-[url('data:image/svg+xml,%3Csvg width=\"60\" height=\"60\" viewBox=\"0 0 60 60\" xmlns=\"http://www.w3.org/2000/svg\"%3E%3Cg fill=\"none\" fill-rule=\"evenodd\"%3E%3Cg fill=\"%23ffffff\" fill-opacity=\"0.03\"%3E%3Ccircle cx=\"30\" cy=\"30\" r=\"2\"/%3E%3C/g%3E%3C/g%3E%3C/svg%3E')]"></div>
+
+            <div class="absolute top-0 left-0 w-96 h-96 bg-blue-500/20 rounded-full blur-3xl animate-pulse"></div>
+            <div class="absolute top-1/2 right-0 w-80 h-80 bg-purple-500/20 rounded-full blur-3xl animate-pulse delay-1000"></div>
+            <div class="absolute bottom-0 left-1/3 w-72 h-72 bg-pink-500/20 rounded-full blur-3xl animate-pulse delay-2000"></div>
+        </div>
+
+        <!-- Perfect Glassmorphism Navigation -->
+        <nav class="fixed top-0 w-full z-50">
+            <div class="bg-white/10 backdrop-blur-2xl border-b border-white/10 shadow-xl">
+                <div class="max-w-7xl mx-auto px-6 py-4">
+                    <div class="flex justify-between items-center">
+
+                        <!-- Logo -->
+                        <div class="flex items-center space-x-4">
+                            <img src="images/logo.jpg"
+                                class="w-12 h-12 rounded-xl object-cover ring-2 ring-white/20"
+                                alt="Logo">
+
+                            <div>
+                                <h1 class="text-lg font-bold bg-gradient-to-r from-white to-cyan-200 bg-clip-text text-transparent">
+                                    Durgesh Reddy
+                                </h1>
+                                <p class="text-xs text-cyan-300">Data Scientist</p>
+                            </div>
+                        </div>
+
+                        <!-- Navigation --> 
+                        <div class="flex items-center space-x-3"> <button onclick="showSection('about')" class="nav-btn px-6 py-3 text-sm font-semibold text-white/80 hover:text-white hover:bg-white/15 rounded-2xl transition-all duration-300 backdrop-blur-sm border border-white/10 hover:border-white/30 hover:shadow-lg">About</button> <button onclick="showSection('education')" class="nav-btn px-6 py-3 text-sm font-semibold text-white/80 hover:text-white hover:bg-white/15 rounded-2xl transition-all duration-300 backdrop-blur-sm border border-white/10 hover:border-white/30 hover:shadow-lg">Education</button> <button onclick="showSection('experience')" class="nav-btn px-6 py-3 text-sm font-semibold text-white/80 hover:text-white hover:bg-white/15 rounded-2xl transition-all duration-300 backdrop-blur-sm border border-white/10 hover:border-white/30 hover:shadow-lg">Experience</button> <button onclick="showSection('internships')" class="nav-btn px-6 py-3 text-sm font-semibold text-white/80 hover:text-white hover:bg-white/15 rounded-2xl transition-all duration-300 backdrop-blur-sm border border-white/10 hover:border-white/30 hover:shadow-lg">Internships</button> <button onclick="showSection('certifications')" class="nav-btn px-6 py-3 text-sm font-semibold text-white/80 hover:text-white hover:bg-white/15 rounded-2xl transition-all duration-300 backdrop-blur-sm border border-white/10 hover:border-white/30 hover:shadow-lg">Certifications</button> <button onclick="showSection('projects')" class="nav-btn px-6 py-3 text-sm font-semibold text-white/80 hover:text-white hover:bg-white/15 rounded-2xl transition-all duration-300 backdrop-blur-sm border border-white/10 hover:border-white/30 hover:shadow-lg">Projects</button> <button onclick="showSection('skills')" class="nav-btn px-6 py-3 text-sm font-semibold text-white/80 hover:text-white hover:bg-white/15 rounded-2xl transition-all duration-300 backdrop-blur-sm border border-white/10 hover:border-white/30 hover:shadow-lg">Skills</button> <button onclick="showSection('contact')" class="nav-btn px-6 py-3 text-sm font-semibold text-white/80 hover:text-white hover:bg-white/15 rounded-2xl transition-all duration-300 backdrop-blur-sm border border-white/10 hover:border-white/30 hover:shadow-lg">Contact</button> </div>
+
+                    </div>
+                </div>
+            </div>
+        </nav>
+    </div>
+
+
+    <!-- Main Content Container -->
+    <main class="pt-32 pb-16 min-h-screen overflow-y-auto">
+        <!-- About Section -->
+        <div class="max-w-6xl mx-auto px-6">
+        <section id="about" class="section-content h-full flex items-center justify-center px-8">
+            <div class="text-center">
+                <div class="bg-white/5 backdrop-blur-3xl rounded-[2rem] p-16 border border-white/10 shadow-[0_8px_32px_0_rgba(31,38,135,0.37)] hover:shadow-[0_8px_32px_0_rgba(31,38,135,0.5)] transition-all duration-500">
+                    <div class="relative inline-block mb-10">
+                        <div class="relative">
+                            <img src="images/logo.jpg" alt="Durgesh Reddy" class="w-40 h-40 rounded-3xl object-cover mx-auto shadow-[0_20px_50px_rgba(8,_112,_184,_0.7)] ring-4 ring-white/20">
+                            <div class="absolute inset-0 rounded-3xl bg-gradient-to-tr from-cyan-400/20 to-purple-400/20"></div>
+                        </div>
+                        <div class="absolute -bottom-3 -right-3 w-10 h-10 bg-gradient-to-r from-green-400 to-emerald-500 rounded-2xl border-4 border-white/30 flex items-center justify-center shadow-xl">
+                            <div class="w-3 h-3 bg-white rounded-full animate-pulse"></div>
+                        </div>
+                    </div>
+                    <h1 class="text-6xl font-black mb-6 leading-tight">
+                        Hi, I'm <span class="bg-gradient-to-r from-cyan-300 via-blue-400 to-purple-400 bg-clip-text text-transparent animate-pulse">Durgesh Reddy</span>
+                    </h1>
+                    <p class="text-2xl text-white/90 mb-12 leading-relaxed max-w-4xl mx-auto">
+                        Data Scientist passionate about <span class="font-bold text-cyan-300">Generative</span>
+                        <span class="font-bold text-cyan-300">AI</span> and <span class="font-bold text-cyan-300">LLM's</span>, transforming applications into actionable insights
+                    </p>
+                    <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                        <div class="bg-white/5 backdrop-blur-2xl rounded-3xl p-8 border border-white/10 hover:bg-white/10 hover:border-white/20 transition-all duration-300 hover:scale-105 shadow-xl">
+                            <div class="w-16 h-16 bg-gradient-to-br from-cyan-400/20 to-blue-500/20 rounded-2xl flex items-center justify-center mx-auto mb-6 shadow-lg">
+                                <i class="fas fa-brain text-cyan-300 text-2xl"></i>
+                            </div>
+                            <h3 class="text-xl font-bold mb-3 text-cyan-200">Data Science </h3>
+                            <p class="text-white/70 leading-relaxed">Building intelligent systems with cutting-edge algorithms</p>
+                        </div>
+                        <div class="bg-white/5 backdrop-blur-2xl rounded-3xl p-8 border border-white/10 hover:bg-white/10 hover:border-white/20 transition-all duration-300 hover:scale-105 shadow-xl">
+                            <div class="w-16 h-16 bg-gradient-to-br from-purple-400/20 to-pink-500/20 rounded-2xl flex items-center justify-center mx-auto mb-6 shadow-lg">
+                                <i class="fas fa-chart-line text-purple-300 text-2xl"></i>
+                            </div>
+                            <h3 class="text-xl font-bold mb-3 text-purple-200">Generative AI</h3>
+                            <p class="text-white/70 leading-relaxed">Making Applications using Large Language Models</p>
+                        </div>
+                        <div class="bg-white/5 backdrop-blur-2xl rounded-3xl p-8 border border-white/10 hover:bg-white/10 hover:border-white/20 transition-all duration-300 hover:scale-105 shadow-xl">
+                            <div class="w-16 h-16 bg-gradient-to-br from-green-400/20 to-emerald-500/20 rounded-2xl flex items-center justify-center mx-auto mb-6 shadow-lg">
+                                <i class="fas fa-code text-green-300 text-2xl"></i>
+                            </div>
+                            <h3 class="text-xl font-bold mb-3 text-green-200">Development</h3>
+                            <p class="text-white/70 leading-relaxed">Creating scalable and robust software solutions</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Education Section -->
+        <div class="max-w-full mx-auto px-6">
+        <section id="education" class="section-content hidden h-full flex items-center justify-center px-6">
+            <div class="text-center">
+                <div class="bg-white/5 backdrop-blur-3xl rounded-[2rem] p-16 border border-white/10 shadow-[0_8px_32px_0_rgba(31,38,135,0.37)]">
+                    <div class="text-center mb-12">
+                        <h2 class="text-5xl font-black mb-6 bg-gradient-to-r from-emerald-300 to-teal-300 bg-clip-text text-transparent">Education</h2>
+                        <div class="w-24 h-2 bg-gradient-to-r from-emerald-400 to-teal-400 mx-auto rounded-full shadow-lg"></div>
+                    </div>
+                    <div class="space-y-10">
+                        <div class="bg-white/5 backdrop-blur-2xl rounded-3xl p-10 border border-white/10 hover:bg-white/10 hover:border-white/20 transition-all duration-500 hover:scale-[1.02] shadow-xl group">
+                            <div class="flex items-center space-x-8">
+                                <div class="relative">
+                                    <img src="images/bec.png" alt="BECB" class="w-24 h-24 rounded-2xl object-cover shadow-2xl ring-2 ring-white/20 group-hover:ring-emerald-400/30 transition-all duration-300">
+                                    <div class="absolute inset-0 rounded-2xl bg-gradient-to-tr from-emerald-400/10 to-transparent"></div>
+                                </div>
+                                <div class="flex-1">
+                                    <h3 class="text-3xl font-bold mb-3 text-emerald-200 group-hover:text-emerald-100 transition-colors">B.Tech in Data Science</h3>
+                                    <p class="text-cyan-300 font-semibold text-xl mb-2">Bapatla Engineering College</p>
+                                    <p class="text-cyan-300 font-semibold text-xl mb-2">Bapatla, Andhra Pradesh, India</p>
+                                    <p class="text-white/80 text-lg">2020-2024 • CGPA: <span class="font-bold text-emerald-300 text-xl">8.46</span></p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="bg-white/5 backdrop-blur-2xl rounded-3xl p-10 border border-white/10 hover:bg-white/10 hover:border-white/20 transition-all duration-500 hover:scale-[1.02] shadow-xl group">
+                            <div class="flex items-center space-x-8">
+                                <div class="relative">
+                                    <img src="images/narayana.jpg" alt="Narayana" class="w-24 h-24 rounded-2xl object-cover shadow-2xl ring-2 ring-white/20 group-hover:ring-teal-400/30 transition-all duration-300">
+                                    <div class="absolute inset-0 rounded-2xl bg-gradient-to-tr from-teal-400/10 to-transparent"></div>
+                                </div>
+                                <div class="flex-1">
+                                    <h3 class="text-3xl font-bold mb-3 text-teal-200 group-hover:text-teal-100 transition-colors">Higher Secondary (MPC)</h3>
+                                    <p class="text-cyan-300 font-semibold text-xl mb-2">Narayana Junior College</p>
+                                    <p class="text-cyan-300 font-semibold text-xl mb-2">Vijayawada, Andhra Pradesh, India</p>
+                                    <p class="text-white/80 text-lg">2018-2020 • CGPA: <span class="font-bold text-emerald-300 text-xl">8.98</span></p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="bg-white/5 backdrop-blur-2xl rounded-3xl p-10 border border-white/10 hover:bg-white/10 hover:border-white/20 transition-all duration-500 hover:scale-[1.02] shadow-xl group">
+                            <div class="flex items-center space-x-8">
+                                <div class="relative">
+                                    <img src="images/rbs.webp" alt="Ravindra Bharathi School" class="w-24 h-24 rounded-2xl object-cover shadow-2xl ring-2 ring-white/20 group-hover:ring-blue-400/30 transition-all duration-300">
+                                    <div class="absolute inset-0 rounded-2xl bg-gradient-to-tr from-teal-400/10 to-transparent"></div>
+                                </div>
+                                <div class="flex-1">
+                                    <h3 class="text-3xl font-bold mb-3 text-teal-200 group-hover:text-teal-100 transition-colors">Lower Secondary School</h3>
+                                    <p class="text-cyan-300 font-semibold text-xl mb-2">Ravindra Bharathi School</p>
+                                    <p class="text-cyan-300 font-semibold text-xl mb-2">Vijayawada, Andhra Pradesh, India</p>
+                                    <p class="text-white/80 text-lg">2017-2018 • Grade: <span class="font-bold text-emerald-300 text-xl">9.5</span></p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        </div>
+
+        <!-- Experience Section -->
+        <div class="max-w-6xl mx-auto px-6">
+        <section id="experience" class="section-content hidden h-full flex items-center justify-center px-8">
+            <div class="w-full">
+                <div class="bg-white/5 backdrop-blur-3xl rounded-[2rem] p-16 border border-white/10 shadow-[0_8px_32px_0_rgba(31,38,135,0.37)]">
+                    <div class="text-center mb-16">
+                        <h2 class="text-5xl font-black mb-6 bg-gradient-to-r from-orange-300 to-red-300 bg-clip-text text-transparent">Professional Experience</h2>
+                        <div class="w-24 h-2 bg-gradient-to-r from-orange-400 to-red-400 mx-auto rounded-full shadow-lg"></div>
+                        <p class="text-xl text-white/70 mt-6 max-w-3xl mx-auto">Building innovative AI solutions and driving data-driven insights in professional environments</p>
+                    </div>
+                    
+                    <div class="bg-white/5 backdrop-blur-2xl rounded-3xl p-10 border border-white/10 hover:bg-white/10 hover:border-white/20 transition-all duration-500 hover:scale-[1.02] shadow-xl group">
+                        <div class="flex flex-col lg:flex-row items-start lg:items-center space-y-6 lg:space-y-0 lg:space-x-8">
+                            <!-- Company Logo -->
+                            <div class="relative">
+                                <div class="w-24 h-24 rounded-3xl bg-gradient-to-r from-orange-500/20 to-red-500/20 flex items-center justify-center border border-white/10 shadow-lg p-3 group-hover:shadow-2xl transition-all duration-300">
+                                    <img src="images/pss-icon.png" alt="Pranathi Software Services" class="w-full h-full object-contain rounded-xl">
+                                </div>
+                                <div class="absolute -top-2 -right-2 w-8 h-8 bg-gradient-to-r from-green-400 to-emerald-500 rounded-full border-2 border-white/30 flex items-center justify-center shadow-lg">
+                                    <i class="fas fa-briefcase text-white text-xs"></i>
+                                </div>
+                            </div>
+                            
+                            <!-- Job Details -->
+                            <div class="flex-1">
+                                <div class="flex flex-col lg:flex-row lg:items-center lg:justify-between mb-4">
+                                    <div>
+                                        <h3 class="text-3xl font-bold text-orange-200 group-hover:text-orange-100 transition-colors mb-2">Data Scientist</h3>
+                                        <p class="text-cyan-300 font-semibold text-xl mb-2">Pranathi Software Services</p>
+                                        <p class="text-white/60 text-lg">Hyderabad, Telangana, India</p>
+                                    </div>
+                                    <div class="mt-4 lg:mt-0">
+                                        <div class="bg-gradient-to-r from-orange-500/20 to-red-500/20 px-6 py-3 rounded-2xl border border-orange-400/30">
+                                            <p class="text-orange-300 font-bold text-lg">May 2025 - Present</p>
+                                            <p class="text-white/70 text-sm">Full-time • Current Role</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <!-- Key Achievements -->
+                                <div class="space-y-4">
+                                    <h4 class="text-xl font-bold text-white/90 mb-4 flex items-center">
+                                        <i class="fas fa-star text-yellow-400 mr-3"></i>
+                                        Key Achievements & Responsibilities
+                                    </h4>
+                                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                                        <div class="bg-white/5 rounded-2xl p-4 border border-white/10 hover:bg-white/10 transition-all duration-300">
+                                            <div class="flex items-start space-x-3">
+                                                <div class="w-8 h-8 bg-gradient-to-r from-cyan-400/20 to-blue-500/20 rounded-lg flex items-center justify-center mt-1">
+                                                    <i class="fas fa-robot text-cyan-400 text-sm"></i>
+                                                </div>
+                                                <div>
+                                                    <h5 class="font-semibold text-white mb-1">Generative AI Development</h5>
+                                                    <p class="text-white/70 text-sm">Leading development of cutting-edge GenAI projects using LLMs and advanced AI frameworks</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="bg-white/5 rounded-2xl p-4 border border-white/10 hover:bg-white/10 transition-all duration-300">
+                                            <div class="flex items-start space-x-3">
+                                                <div class="w-8 h-8 bg-gradient-to-r from-purple-400/20 to-pink-500/20 rounded-lg flex items-center justify-center mt-1">
+                                                    <i class="fas fa-chart-line text-purple-400 text-sm"></i>
+                                                </div>
+                                                <div>
+                                                    <h5 class="font-semibold text-white mb-1">Data-Driven Solutions</h5>
+                                                    <p class="text-white/70 text-sm">Implementing advanced analytics and ML models for business intelligence and decision-making</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="bg-white/5 rounded-2xl p-4 border border-white/10 hover:bg-white/10 transition-all duration-300">
+                                            <div class="flex items-start space-x-3">
+                                                <div class="w-8 h-8 bg-gradient-to-r from-green-400/20 to-emerald-500/20 rounded-lg flex items-center justify-center mt-1">
+                                                    <i class="fas fa-cogs text-green-400 text-sm"></i>
+                                                </div>
+                                                <div>
+                                                    <h5 class="font-semibold text-white mb-1">Model Optimization</h5>
+                                                    <p class="text-white/70 text-sm">Optimizing AI models for production deployment and scalable performance</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="bg-white/5 rounded-2xl p-4 border border-white/10 hover:bg-white/10 transition-all duration-300">
+                                            <div class="flex items-start space-x-3">
+                                                <div class="w-8 h-8 bg-gradient-to-r from-yellow-400/20 to-orange-500/20 rounded-lg flex items-center justify-center mt-1">
+                                                    <i class="fas fa-users text-yellow-400 text-sm"></i>
+                                                </div>
+                                                <div>
+                                                    <h5 class="font-semibold text-white mb-1">Cross-functional Collaboration</h5>
+                                                    <p class="text-white/70 text-sm">Working with engineering and product teams to deliver AI-powered solutions</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <!-- Technologies Used -->
+                                <div class="mt-6">
+                                    <h4 class="text-lg font-bold text-white/90 mb-3 flex items-center">
+                                        <i class="fas fa-tools text-cyan-400 mr-3"></i>
+                                        Technologies & Tools
+                                    </h4>
+                                    <div class="flex flex-wrap gap-2">
+                                        <span class="px-3 py-1 bg-gradient-to-r from-blue-500/20 to-cyan-500/20 text-cyan-300 rounded-full text-sm border border-cyan-400/30">Python</span>
+                                        <span class="px-3 py-1 bg-gradient-to-r from-green-500/20 to-emerald-500/20 text-emerald-300 rounded-full text-sm border border-emerald-400/30">LangChain</span>
+                                        <span class="px-3 py-1 bg-gradient-to-r from-purple-500/20 to-pink-500/20 text-pink-300 rounded-full text-sm border border-pink-400/30">Hugging Face</span>
+                                        <span class="px-3 py-1 bg-gradient-to-r from-yellow-500/20 to-orange-500/20 text-orange-300 rounded-full text-sm border border-orange-400/30">OpenAI</span>
+                                        <span class="px-3 py-1 bg-gradient-to-r from-indigo-500/20 to-purple-500/20 text-purple-300 rounded-full text-sm border border-purple-400/30">Docker</span>
+                                        <span class="px-3 py-1 bg-gradient-to-r from-red-500/20 to-pink-500/20 text-red-300 rounded-full text-sm border border-red-400/30">AWS</span>
+                                    </div>
+                                </div>
+                                
+                                <!-- Future Goals -->
+                                <div class="mt-8 p-6 bg-gradient-to-r from-cyan-500/10 to-blue-500/10 rounded-2xl border border-cyan-400/20">
+                                    <h4 class="text-lg font-bold text-cyan-200 mb-3 flex items-center">
+                                        <i class="fas fa-rocket text-cyan-400 mr-3"></i>
+                                        Looking Forward
+                                    </h4>
+                                    <p class="text-white/80 leading-relaxed mb-4">
+                                        Seeking opportunities to leverage my expertise in <span class="font-semibold text-cyan-300">Generative AI</span>, 
+                                        <span class="font-semibold text-blue-300">Machine Learning</span>, and <span class="font-semibold text-purple-300">Data Science</span> 
+                                        to solve complex real-world problems and drive innovation in AI-powered solutions.
+                                    </p>
+                                    <div class="flex flex-wrap gap-2">
+                                        <span class="px-3 py-1 bg-gradient-to-r from-cyan-500/20 to-blue-500/20 text-cyan-300 rounded-full text-sm border border-cyan-400/30">AI Research</span>
+                                        <span class="px-3 py-1 bg-gradient-to-r from-purple-500/20 to-pink-500/20 text-purple-300 rounded-full text-sm border border-purple-400/30">MLOps</span>
+                                        <span class="px-3 py-1 bg-gradient-to-r from-green-500/20 to-emerald-500/20 text-emerald-300 rounded-full text-sm border border-emerald-400/30">Product Development</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        </div>
+        
+        <!-- Internships Section -->
+        <div class="max-w-6xl mx-auto px-6">
+        <section id="internships" class="section-content hidden h-full flex items-center justify-center px-8">
+            <div class="text-center">
+                <div class="bg-white/5 backdrop-blur-3xl rounded-[2rem] p-16 border border-white/10 shadow-[0_8px_32px_0_rgba(31,38,135,0.37)]">
+                    <div class="text-center mb-12">
+                        <h2 class="text-5xl font-black mb-6 bg-gradient-to-r from-purple-300 to-pink-300 bg-clip-text text-transparent">Internships</h2>
+                        <div class="w-24 h-2 bg-gradient-to-r from-purple-400 to-pink-400 mx-auto rounded-full shadow-lg"></div>
+                    </div>
+                    <div class="space-y-10">
+                        <div class="bg-white/5 backdrop-blur-2xl rounded-3xl p-10 border border-white/10 hover:bg-white/10 hover:border-white/20 transition-all duration-500 hover:scale-[1.02] shadow-xl group">
+                            <div class="flex items-start space-x-8">
+                                <div class="w-20 h-20 rounded-3xl bg-gradient-to-r from-blue-500/20 to-purple-500/20 flex items-center justify-center border border-white/10 shadow-lg p-2">
+                                    <img src="images/pss-icon.png" alt="Pranathi Software Services" class="w-full h-full object-contain rounded-xl">
+                                </div>
+                                <div class="flex-1">
+                                    <div class="flex items-center mb-6">
+                                        <h3 class="text-3xl font-bold text-blue-200">Data Scientist Intern</h3>
+                                    </div>
+                                    <p class="text-cyan-300 font-semibold text-xl mb-6">February 2025 - May 2025</p>
+                                    <ul class="space-y-4 text-white/80 text-lg">
+                                        <li class="flex items-start"><i class="fas fa-chevron-right text-cyan-400 mt-2 mr-4"></i>Working on Data Science and real-world problems using Generative AI</li>
+                                        <li class="flex items-start"><i class="fas fa-chevron-right text-cyan-400 mt-2 mr-4"></i>Enhanced understanding of data-driven decision-making</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="bg-white/5 backdrop-blur-2xl rounded-3xl p-10 border border-white/10 hover:bg-white/10 hover:border-white/20 transition-all duration-500 hover:scale-[1.02] shadow-xl group">
+                            <div class="flex items-start space-x-8">
+                                <div class="w-20 h-20 rounded-3xl bg-gradient-to-r from-green-500/20 to-teal-500/20 flex items-center justify-center border border-white/10 shadow-lg p-2">
+                                    <img src="images/oasis.jpg" alt="Oasis Infobyte" class="w-full h-full object-contain rounded-xl">
+                                </div>
+                                <div class="flex-1">
+                                    <div class="flex items-center mb-6">
+                                        <h3 class="text-3xl font-bold text-green-200">Data Science Intern</h3>
+                                    </div>
+                                    <p class="text-cyan-300 font-semibold text-xl mb-6">August 2023 - September 2023</p>
+                                    <ul class="space-y-4 text-white/80 text-lg">
+                                        <li class="flex items-start"><i class="fas fa-chevron-right text-cyan-400 mt-2 mr-4"></i>Hands-on experience in EDA, Machine Learning, and problem-solving</li>
+                                        <li class="flex items-start"><i class="fas fa-chevron-right text-cyan-400 mt-2 mr-4"></i>Worked on practical projects enhancing industry-relevant skills</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="bg-white/5 backdrop-blur-2xl rounded-3xl p-10 border border-white/10 hover:bg-white/10 hover:border-white/20 transition-all duration-500 hover:scale-[1.02] shadow-xl group">
+                            <div class="flex items-start space-x-8">
+                                <div class="w-20 h-20 rounded-3xl bg-gradient-to-r from-pink-500/20 to-red-500/20 flex items-center justify-center border border-white/10 shadow-lg p-2">
+                                    <img src="images/spypro.jpg" alt="Spypro Security Solutions" class="w-full h-full object-contain rounded-xl">
+                                </div>
+                                <div class="flex-1">
+                                    <div class="flex items-center mb-6">
+                                        <h3 class="text-3xl font-bold text-pink-200">AI Intern</h3>
+                                    </div>
+                                    <p class="text-cyan-300 font-semibold text-xl mb-6">May 2023 - June 2023</p>
+                                    <ul class="space-y-4 text-white/80 text-lg">
+                                        <li class="flex items-start"><i class="fas fa-chevron-right text-cyan-400 mt-2 mr-4"></i>Data preprocessing, model training, and AI integration</li>
+                                        <li class="flex items-start"><i class="fas fa-chevron-right text-cyan-400 mt-2 mr-4"></i>Developed and deployed ML models for practical AI solutions</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        </div>
+
+        <!-- Certifications Section -->
+        <div class="max-w-6xl mx-auto px-6">
+        <section id="certifications" class="section-content hidden h-full flex items-center justify-center px-8">
+            <div class="text-center">
+                <div class="bg-white/5 backdrop-blur-3xl rounded-[2rem] p-16 border border-white/10 shadow-[0_8px_32px_0_rgba(31,38,135,0.37)]">
+
+                    <!-- Title -->
+                    <div class="text-center mb-12">
+                        <h2 class="text-5xl font-black mb-6 bg-gradient-to-r from-yellow-300 to-amber-300 bg-clip-text text-transparent">
+                            Certifications
+                        </h2>
+                        <div class="w-24 h-2 bg-gradient-to-r from-yellow-400 to-amber-400 mx-auto rounded-full shadow-lg"></div>
+                    </div>
+
+                    <!-- Grid -->
+                    <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-8 gap-14">
+
+                        <!-- CARD TEMPLATE -->
+                        <div class="group flex flex-col items-center text-center">
+                            <div class="w-28 h-28 mb-3 p-3 bg-gradient-to-br from-blue-50 to-blue-100 rounded-2xl shadow-lg 
+                                        group-hover:shadow-xl group-hover:scale-110 transition-all duration-300 border border-blue-200">
+                                <img src="images/microsoftcertificate.png"
+                                    alt="Microsoft Technology Associate"
+                                    class="w-full h-full object-contain rounded-lg">
+                            </div>
+                            <p class="max-w-[8rem] text-sm font-semibold text-white leading-snug text-center text-balance">
+                                Microsoft Technology Associate
+                            </p>
+                        </div>
+
+                        <div class="group flex flex-col items-center text-center">
+                            <div class="w-28 h-28 mb-3 p-3 bg-gradient-to-br from-cyan-50 to-cyan-100 rounded-2xl shadow-lg 
+                                        group-hover:shadow-xl group-hover:scale-110 transition-all duration-300 border border-cyan-200">
+                                <img src="images/oci.png" alt="Oracle Cloud Infrastructure"
+                                    class="w-full h-full object-contain rounded-lg">
+                            </div>
+                            <p class="max-w-[8rem] text-sm font-semibold text-white leading-snug text-center text-balance">
+                                Oracle Cloud Infrastructure
+                            </p>
+                        </div>
+
+                        <div class="group flex flex-col items-center text-center">
+                            <div class="w-28 h-28 mb-3 p-3 bg-gradient-to-br from-cyan-50 to-cyan-100 rounded-2xl shadow-lg 
+                                        group-hover:shadow-xl group-hover:scale-110 transition-all duration-300 border border-cyan-200">
+                                <img src="images/neo4j.png" alt="Neo4j"
+                                    class="w-full h-full object-contain rounded-lg">
+                            </div>
+                            <p class="max-w-[8rem] text-sm font-semibold text-white leading-snug text-center">
+                                Neo4j
+                            </p>
+                        </div>
+
+                        <div class="group flex flex-col items-center text-center">
+                            <div class="w-28 h-28 mb-3 p-3 bg-gradient-to-br from-cyan-50 to-cyan-100 rounded-2xl shadow-lg 
+                                        group-hover:shadow-xl group-hover:scale-110 transition-all duration-300 border border-cyan-200">
+                                <img src="images/cna.png" alt="Cisco Network Academy"
+                                    class="w-full h-full object-contain rounded-lg">
+                            </div>
+                            <p class="max-w-[8rem] text-sm font-semibold text-white leading-snug text-center text-balance">
+                                Cisco Network Academy
+                            </p>
+                        </div>
+
+                        <div class="group flex flex-col items-center text-center">
+                            <div class="w-28 h-28 mb-3 p-3 bg-gradient-to-br from-indigo-50 to-indigo-100 rounded-2xl shadow-lg 
+                                        group-hover:shadow-xl group-hover:scale-110 transition-all duration-300 border border-indigo-200">
+                                <img src="images/ai.png" alt="IBM Skills Build"
+                                    class="w-full h-full object-contain rounded-lg">
+                            </div>
+                            <p class="max-w-[8rem] text-sm font-semibold text-white leading-snug text-center text-balance">
+                                IBM Skills Build
+                            </p>
+                        </div>
+
+                        <div class="group flex flex-col items-center text-center">
+                            <div class="w-28 h-28 mb-3 p-3 bg-gradient-to-br from-green-50 to-green-100 rounded-2xl shadow-lg 
+                                        group-hover:shadow-xl group-hover:scale-110 transition-all duration-300 border border-green-200">
+                                <img src="images/springboard1.png" alt="Infosys Springboard"
+                                    class="w-full h-full object-contain rounded-lg">
+                            </div>
+                            <p class="max-w-[8rem] text-sm font-semibold text-white leading-snug text-center text-balance">
+                                Infosys Springboard
+                            </p>
+                        </div>
+
+                        <div class="group flex flex-col items-center text-center">
+                            <div class="w-28 h-28 mb-3 p-3 bg-gradient-to-br from-orange-50 to-orange-100 rounded-2xl shadow-lg 
+                                        group-hover:shadow-xl group-hover:scale-110 transition-all duration-300 border border-orange-200">
+                                <img src="images/hplife.png" alt="HP LIFE"
+                                    class="w-full h-full object-contain rounded-lg">
+                            </div>
+                            <p class="max-w-[8rem] text-sm font-semibold text-white leading-snug text-center">
+                                HP LIFE
+                            </p>
+                        </div>
+
+                        <div class="group flex flex-col items-center text-center">
+                            <div class="w-28 h-28 mb-3 p-3 bg-gradient-to-br from-purple-50 to-purple-100 rounded-2xl shadow-lg 
+                                        group-hover:shadow-xl group-hover:scale-110 transition-all duration-300 border border-purple-200">
+                                <img src="images/nptel.jpg" alt="NPTEL"
+                                    class="w-full h-full object-contain rounded-lg">
+                            </div>
+                            <p class="max-w-[8rem] text-sm font-semibold text-white leading-snug text-center">
+                                NPTEL
+                            </p>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </section>
+        </div>
+
+
+        <!-- Projects Section -->
+        <div class="max-w-full mx-auto px-6">
+        <section id="projects" class="section-content hidden h-full flex items-center justify-center px-8">
+            <div class="w-full">
+                <div class="bg-white/5 backdrop-blur-3xl rounded-[2rem] p-16 border border-white/10 shadow-[0_8px_32px_0_rgba(31,38,135,0.37)]">
+                    <div class="text-center mb-12">
+                        <h2 class="text-5xl font-black mb-6 bg-gradient-to-r from-indigo-300 to-purple-300 bg-clip-text text-transparent">Featured Projects</h2>
+                        <div class="w-24 h-2 bg-gradient-to-r from-indigo-400 to-purple-400 mx-auto rounded-full shadow-lg"></div>
+                    </div>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-8 w-full">
+                        <div class="flip-card">
+                            <div class="flip-card-inner">
+                                <div class="flip-card-front bg-cover bg-center shadow-xl relative" style="background-image: url(images/image1.jpg);">
+                                    <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent rounded-2xl"></div>
+                                    <div class="absolute bottom-0 w-full p-6">
+                                        <h3 class="text-xl font-bold text-white mb-2">Chatbot using LLM's</h3>
+                                        <p class="text-gray-200 text-sm">Advanced conversational AI chatbot</p>
+                                        <div class="mt-3 text-xs text-cyan-300">Hover to see details</div>
+                                    </div>
+                                </div>
+                                <div class="flip-card-back bg-gradient-to-br from-indigo-500/20 to-purple-500/20 backdrop-blur-xl border border-white/20 p-4 flex flex-col justify-center">
+                                    <h3 class="text-xl font-bold text-white mb-3">Chatbot using LLM's</h3>
+                                    <div class="text-white/90 space-y-2 mb-4 text-sm">
+                                        <div class="flex items-center"><i class="fas fa-robot text-cyan-400 mr-2 text-sm"></i>Built with Large Language Models</div>
+                                        <div class="flex items-center"><i class="fas fa-brain text-purple-400 mr-2 text-sm"></i>Natural language understanding</div>
+                                        <div class="flex items-center"><i class="fas fa-comments text-blue-400 mr-2 text-sm"></i>Advanced conversational AI</div>
+                                        <div class="flex items-center"><i class="fas fa-bolt text-yellow-400 mr-2 text-sm"></i>Real-time response generation</div>
+                                    </div>
+                                    <!-- <div class="flex space-x-2">
+                                        <a href="https://github.com/durgeshreddygatla/Chatbot_using_LLM" target="_blank" class="flex-1 px-3 py-2 bg-gradient-to-r from-cyan-500 to-blue-500 text-white font-semibold rounded-lg hover:from-cyan-600 hover:to-blue-600 transition-all duration-300 text-center text-sm">
+                                            <i class="fab fa-github mr-1"></i>View Code
+                                        </a>
+                                    </div> -->
+                                </div>
+                            </div>
+                        </div>
+                        <div class="flip-card">
+                            <div class="flip-card-inner">
+                                <div class="flip-card-front bg-cover bg-center shadow-xl relative" style="background-image: url(images/podcast.webp);">
+                                    <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent rounded-2xl"></div>
+                                    <div class="absolute bottom-0 w-full p-6">
+                                        <h3 class="text-xl font-bold text-white mb-2">Podcast Video Generation</h3>
+                                        <p class="text-gray-200 text-sm">AI-powered video generation</p>
+                                        <div class="mt-3 text-xs text-cyan-300">Hover to see details</div>
+                                    </div>
+                                </div>
+                                <div class="flip-card-back bg-gradient-to-br from-green-500/20 to-teal-500/20 backdrop-blur-xl border border-white/20 p-4 flex flex-col justify-center">
+                                    <h3 class="text-xl font-bold text-white mb-3">Podcast Video Generation</h3>
+                                    <div class="text-white/90 space-y-2 mb-4 text-sm">
+                                        <div class="flex items-center"><i class="fas fa-microphone text-green-400 mr-2 text-sm"></i>Text-to-Speech model integration</div>
+                                        <div class="flex items-center"><i class="fas fa-video text-teal-400 mr-2 text-sm"></i>LipSync model for realism</div>
+                                        <div class="flex items-center"><i class="fas fa-cut text-blue-400 mr-2 text-sm"></i>Image Segmentation technology</div>
+                                        <div class="flex items-center"><i class="fas fa-magic text-purple-400 mr-2 text-sm"></i>Automated video generation</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="flip-card">
+                            <div class="flip-card-inner">
+
+                                <!-- Front -->
+                                <div class="flip-card-front bg-cover bg-center shadow-xl relative" 
+                                    style="background-image: url(images/nse.png);">
+                                    <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent rounded-2xl"></div>
+                                    <div class="absolute bottom-0 w-full p-6">
+                                        <h3 class="text-xl font-bold text-white mb-2">
+                                            NSE Stock Recommendation
+                                        </h3>
+                                        <p class="text-gray-200 text-sm">
+                                            AI-powered insights for NSE-listed stocks
+                                        </p>
+                                        <div class="mt-3 text-xs text-cyan-300">
+                                            Hover to view details
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- Back -->
+                                <div class="flip-card-back bg-gradient-to-br from-green-500/20 to-teal-500/20 backdrop-blur-xl border border-white/20 p-4 flex flex-col justify-center">
+                                    <h3 class="text-xl font-bold text-white mb-3">
+                                        NSE Stock Recommendation
+                                    </h3>
+
+                                    <div class="text-white/90 space-y-2 mb-4 text-sm">
+                                        <div class="flex items-center">
+                                            <i class="fas fa-microphone text-green-400 mr-2 text-sm"></i>
+                                            Aggregates financial news from multiple trusted sources
+                                        </div>
+                                        <div class="flex items-center">
+                                            <i class="fas fa-video text-teal-400 mr-2 text-sm"></i>
+                                            Retrieves and analyzes companies listed on the NSE
+                                        </div>
+                                        <div class="flex items-center">
+                                            <i class="fas fa-cut text-blue-400 mr-2 text-sm"></i>
+                                            Performs sentiment analysis on news related to each company
+                                        </div>
+                                        <div class="flex items-center">
+                                            <i class="fas fa-magic text-purple-400 mr-2 text-sm"></i>
+                                            Classifies sentiment as Positive, Negative, or Neutral
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+
+        <!-- Skills Section -->
+        <div class="max-w-6xl mx-auto px-6">
+        <section id="skills" class="section-content hidden h-full flex items-center justify-center px-8">
+            <div class="w-full">
+                <div class="bg-white/5 backdrop-blur-3xl rounded-[2rem] p-16 border border-white/10 shadow-[0_8px_32px_0_rgba(31,38,135,0.37)]">
+                    <div class="text-center mb-12">
+                        <h2 class="text-5xl font-black mb-6 bg-gradient-to-r from-cyan-300 to-blue-300 bg-clip-text text-transparent">Skills & Technologies</h2>
+                        <div class="w-24 h-2 bg-gradient-to-r from-cyan-400 to-blue-400 mx-auto rounded-full shadow-lg"></div>
+                        <p class="text-xl text-white/70 mt-6">Professional expertise and technical toolkit</p>
+                    </div>
+                    
+                    <!-- Stats Row -->
+                    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-8">
+                        <div class="bg-white/5 backdrop-blur-2xl rounded-2xl p-6 border border-white/10 hover:bg-white/10 transition-all duration-300">
+                            <div class="flex items-center justify-between mb-4">
+                                <div class="w-12 h-12 bg-gradient-to-r from-pink-500 to-purple-500 rounded-xl flex items-center justify-center">
+                                    <i class="fas fa-code text-white text-xl"></i>
+                                </div>
+                                <span class="text-2xl font-bold text-white">2</span>
+                            </div>
+                            <h3 class="text-slate-400 text-sm mb-1">Languages</h3>
+                            <p class="text-white font-semibold">Python, SQL</p>
+                        </div>
+                        <div class="bg-white/5 backdrop-blur-2xl rounded-2xl p-6 border border-white/10 hover:bg-white/10 transition-all duration-300">
+                            <div class="flex items-center justify-between mb-4">
+                                <div class="w-12 h-12 bg-gradient-to-r from-cyan-500 to-blue-500 rounded-xl flex items-center justify-center">
+                                    <i class="fas fa-brain text-white text-xl"></i>
+                                </div>
+                                <span class="text-2xl font-bold text-white">3</span>
+                            </div>
+                            <h3 class="text-slate-400 text-sm mb-1">Technologies</h3>
+                            <p class="text-white font-semibold">ML, DL, NLP</p>
+                        </div>
+                        <div class="bg-white/5 backdrop-blur-2xl rounded-2xl p-6 border border-white/10 hover:bg-white/10 transition-all duration-300">
+                            <div class="flex items-center justify-between mb-4">
+                                <div class="w-12 h-12 bg-gradient-to-r from-green-500 to-teal-500 rounded-xl flex items-center justify-center">
+                                    <i class="fas fa-layer-group text-white text-xl"></i>
+                                </div>
+                                <span class="text-2xl font-bold text-white">5</span>
+                            </div>
+                            <h3 class="text-slate-400 text-sm mb-1">Frameworks</h3>
+                            <p class="text-white font-semibold">LangChain, Django & more</p>
+                        </div>
+                        <div class="bg-white/5 backdrop-blur-2xl rounded-2xl p-6 border border-white/10 hover:bg-white/10 transition-all duration-300">
+                            <div class="flex items-center justify-between mb-4">
+                                <div class="w-12 h-12 bg-gradient-to-r from-orange-500 to-red-500 rounded-xl flex items-center justify-center">
+                                    <i class="fas fa-robot text-white text-xl"></i>
+                                </div>
+                                <span class="text-2xl font-bold text-white">7</span>
+                            </div>
+                            <h3 class="text-slate-400 text-sm mb-1">AI Models</h3>
+                            <p class="text-white font-semibold">OpenAI, Claude & more</p>
+                        </div>
+                    </div>
+
+                    <!-- Main Grid -->
+                    <div class="grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 gap-6">
+                        
+                        <!-- Languages Block -->
+                        <div class="bg-white/5 backdrop-blur-2xl rounded-2xl p-6 border border-white/10 hover:bg-white/10 hover:border-white/20 transition-all duration-300 hover:scale-[1.02] shadow-xl">
+                            <div class="flex items-center gap-3 mb-6">
+                                <div class="w-10 h-10 bg-gradient-to-r from-pink-500 to-purple-500 rounded-lg flex items-center justify-center">
+                                    <i class="fas fa-code text-white"></i>
+                                </div>
+                                <div>
+                                    <h3 class="text-white font-bold text-lg">Languages</h3>
+                                    <p class="text-slate-400 text-xs">Programming Languages</p>
+                                </div>
+                            </div>
+                            <div class="space-y-3">
+                                <div class="flex items-center gap-3 bg-slate-700/30 rounded-xl p-3 hover:bg-slate-700/50 transition-all duration-300">
+                                    <div class="w-10 h-10 bg-gradient-to-br from-blue-500 to-yellow-500 rounded-lg flex items-center justify-center p-2">
+                                        <img src="https://upload.wikimedia.org/wikipedia/commons/c/c3/Python-logo-notext.svg" alt="Python" class="w-full h-full object-contain">
+                                    </div>
+                                    <span class="text-white font-medium">Python</span>
+                                </div>
+                                <div class="flex items-center gap-3 bg-slate-700/30 rounded-xl p-3 hover:bg-slate-700/50 transition-all duration-300">
+                                    <div class="w-10 h-10 bg-gradient-to-br from-orange-500 to-red-500 rounded-lg flex items-center justify-center">
+                                        <i class="fas fa-database text-white"></i>
+                                    </div>
+                                    <span class="text-white font-medium">SQL</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Data Visualization Block -->
+                        <div class="bg-white/5 backdrop-blur-2xl rounded-2xl p-6 border border-white/10 hover:bg-white/10 hover:border-white/20 transition-all duration-300 hover:scale-[1.02] shadow-xl">
+                            <div class="flex items-center gap-3 mb-6">
+                                <div class="w-10 h-10 bg-gradient-to-r from-cyan-500 to-blue-500 rounded-lg flex items-center justify-center">
+                                    <i class="fas fa-chart-line text-white"></i>
+                                </div>
+                                <div>
+                                    <h3 class="text-white font-bold text-lg">Data Visualization</h3>
+                                    <p class="text-slate-400 text-xs">Charts & Dashboards</p>
+                                </div>
+                            </div>
+                            <div class="space-y-3">
+                                <div class="tech-item flex items-center gap-3 bg-slate-700/30 rounded-xl p-3">
+                                    <div class="w-10 h-10 bg-gradient-to-br from-indigo-500 to-purple-500 rounded-lg flex items-center justify-center p-2">
+                                        <img src="images/Matplotlib.png" alt="Matplotlib" class="w-full h-full object-contain">
+                                    </div>
+                                    <span class="text-white font-medium">Matplotlib</span>
+                                </div>
+                                <div class="tech-item flex items-center gap-3 bg-slate-700/30 rounded-xl p-3">
+                                    <div class="w-10 h-10 bg-gradient-to-br from-blue-500 to-cyan-500 rounded-lg flex items-center justify-center p-2">
+                                        <img src="images/seaborn.png" alt="Seaborn" class="w-full h-full object-contain">
+                                    </div>
+                                    <span class="text-white font-medium">Seaborn</span>
+                                </div>
+                                <div class="flex items-center gap-3 bg-slate-700/30 rounded-xl p-3 hover:bg-slate-700/50 transition-all duration-300">
+                                    <div class="w-10 h-10 bg-gradient-to-br from-indigo-500 to-purple-500 rounded-lg flex items-center justify-center p-2">
+                                        <img src="images/Plotly.png" alt="Plotly" class="w-full h-full object-contain">
+                                    </div>
+                                    <span class="text-white font-medium">Plotly</span>
+                                </div>
+                                <div class="flex items-center gap-3 bg-slate-700/30 rounded-xl p-3 hover:bg-slate-700/50 transition-all duration-300">
+                                    <div class="w-10 h-10 bg-gradient-to-br from-yellow-500 to-orange-500 rounded-lg flex items-center justify-center p-2">
+                                        <img src="images/powerbi.png" alt="PowerBI" class="w-full h-full object-contain">
+                                    </div>
+                                    <span class="text-white font-medium">PowerBI</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Technologies Block -->
+                        <div class="bg-white/5 backdrop-blur-2xl rounded-2xl p-6 border border-white/10 hover:bg-white/10 hover:border-white/20 transition-all duration-300 hover:scale-[1.02] shadow-xl">
+                            <div class="flex items-center gap-3 mb-6">
+                                <div class="w-10 h-10 bg-gradient-to-r from-green-500 to-teal-500 rounded-lg flex items-center justify-center">
+                                    <i class="fas fa-brain text-white"></i>
+                                </div>
+                                <div>
+                                    <h3 class="text-white font-bold text-lg">Technologies</h3>
+                                    <p class="text-slate-400 text-xs">AI & ML Technologies</p>
+                                </div>
+                            </div>
+                            <div class="space-y-3">
+                                <div class="flex items-center gap-3 bg-slate-700/30 rounded-xl p-3 hover:bg-slate-700/50 transition-all duration-300">
+                                    <div class="w-10 h-10 bg-gradient-to-br from-purple-500 to-pink-500 rounded-lg flex items-center justify-center">
+                                        <i class="fas fa-brain text-white"></i>
+                                    </div>
+                                    <span class="text-white font-medium">Machine Learning</span>
+                                </div>
+                                <div class="flex items-center gap-3 bg-slate-700/30 rounded-xl p-3 hover:bg-slate-700/50 transition-all duration-300">
+                                    <div class="w-10 h-10 bg-gradient-to-br from-indigo-500 to-purple-500 rounded-lg flex items-center justify-center p-1">
+                                        <img src="https://miro.medium.com/v2/resize:fit:1400/1*bhFifratH9DjKqMBTeQG5A.gif" alt="Deep Learning" class="w-full h-full object-cover rounded">
+                                    </div>
+                                    <span class="text-white font-medium">Deep Learning</span>
+                                </div>
+                                <div class="flex items-center gap-3 bg-slate-700/30 rounded-xl p-3 hover:bg-slate-700/50 transition-all duration-300">
+                                    <div class="w-10 h-10 bg-gradient-to-br from-green-500 to-teal-500 rounded-lg flex items-center justify-center">
+                                        <i class="fas fa-language text-white"></i>
+                                    </div>
+                                    <span class="text-white font-medium">NLP</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Vector Databases Block -->
+                        <div class="bg-white/5 backdrop-blur-2xl rounded-2xl p-6 border border-white/10 hover:bg-white/10 hover:border-white/20 transition-all duration-300 hover:scale-[1.02] shadow-xl">
+                            <div class="flex items-center gap-3 mb-6">
+                                <div class="w-10 h-10 bg-gradient-to-br from-cyan-500 to-blue-500 rounded-lg flex items-center justify-center">
+                                    <i class="fas fa-database text-white"></i>
+                                </div>
+                                <div>
+                                    <h3 class="text-white font-bold text-lg">Vector Databases</h3>
+                                    <p class="text-slate-400 text-xs">Vector Storage</p>
+                                </div>
+                            </div>
+                            <div class="space-y-3">
+                                <div class="flex items-center gap-3 bg-slate-700/30 rounded-xl p-3 hover:bg-slate-700/50 transition-all duration-300">
+                                    <div class="w-10 h-10 bg-gradient-to-br from-teal-500 to-cyan-500 rounded-lg flex items-center justify-center p-2">
+                                        <img src="images/chromadb.webp" alt="ChromaDB" class="w-full h-full object-contain">
+                                    </div>
+                                    <span class="text-white font-medium">ChromaDB</span>
+                                </div>
+                                <div class="flex items-center gap-3 bg-slate-700/30 rounded-xl p-3 hover:bg-slate-700/50 transition-all duration-300">
+                                    <div class="w-10 h-10 bg-gradient-to-br from-cyan-500 to-blue-500 rounded-lg flex items-center justify-center p-2">
+                                        <img src="https://weaviate.io/img/site/weaviate-logo-light.png" alt="Weaviate" class="w-full h-full object-contain">
+                                    </div>
+                                    <span class="text-white font-medium">Weaviate</span>
+                                </div>
+                                <div class="flex items-center gap-3 bg-slate-700/30 rounded-xl p-3 hover:bg-slate-700/50 transition-all duration-300">
+                                    <div class="w-10 h-10 bg-gradient-to-br from-blue-500 to-indigo-500 rounded-lg flex items-center justify-center p-2">
+                                        <img src="images/qdrant.webp" alt="Qdrant" class="w-full h-full object-contain">
+                                    </div>
+                                    <span class="text-white font-medium">Qdrant</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Frameworks Block -->
+                        <div class="bg-white/5 backdrop-blur-2xl rounded-2xl p-6 border border-white/10 hover:bg-white/10 hover:border-white/20 transition-all duration-300 hover:scale-[1.02] shadow-xl lg:col-span-2">
+                            <div class="flex items-center gap-3 mb-6">
+                                <div class="w-10 h-10 bg-gradient-to-r from-orange-500 to-red-500 rounded-lg flex items-center justify-center">
+                                    <i class="fas fa-layer-group text-white"></i>
+                                </div>
+                                <div>
+                                    <h3 class="text-white font-bold text-lg">Frameworks</h3>
+                                    <p class="text-slate-400 text-xs">Development Frameworks</p>
+                                </div>
+                            </div>
+                            <div class="grid grid-cols-2 gap-3">
+                                <div class="flex items-center gap-3 bg-slate-700/30 rounded-xl p-3 hover:bg-slate-700/50 transition-all duration-300">
+                                    <div class="w-10 h-10 bg-gradient-to-br from-amber-500 to-yellow-500 rounded-lg flex items-center justify-center p-2">
+                                        <img src="https://images.seeklogo.com/logo-png/61/1/langchain-icon-white-logo-png_seeklogo-611656.png" alt="LangChain" class="w-full h-full object-contain">
+                                    </div>
+                                    <span class="text-white font-medium">LangChain</span>
+                                </div>
+                                <div class="flex items-center gap-3 bg-slate-700/30 rounded-xl p-3 hover:bg-slate-700/50 transition-all duration-300">
+                                    <div class="w-10 h-10 bg-gradient-to-br from-rose-500 to-red-500 rounded-lg flex items-center justify-center p-2">
+                                        <img src="https://cdn.jsdelivr.net/gh/lobehub/lobe-icons@latest/packages/static-png/dark/llamaindex-color.png" alt="Llama Index" class="w-full h-full object-contain">
+                                    </div>
+                                    <span class="text-white font-medium">Llama Index</span>
+                                </div>
+                                <div class="tech-item flex items-center gap-3 bg-slate-700/30 rounded-xl p-3">
+                                    <div class="w-10 h-10 bg-white rounded-lg flex items-center justify-center p-2">
+                                        <img src="https://worldvectorlogo.com/logos/openai-2.svg" alt="OpenAI Agents" class="w-full h-full object-contain">
+                                    </div>
+                                    <span class="text-white font-medium">OpenAI Agents</span>
+                                </div>
+                                <div class="flex items-center gap-3 bg-slate-700/30 rounded-xl p-3 hover:bg-slate-700/50 transition-all duration-300">
+                                    <div class="w-10 h-10 bg-gradient-to-br from-green-500 to-emerald-500 rounded-lg flex items-center justify-center p-2">
+                                        <img src="images/django-logo.png" alt="Django" class="w-full h-full object-contain">
+                                    </div>
+                                    <span class="text-white font-medium">Django</span>
+                                </div>
+                                <div class="tech-item flex items-center gap-3 bg-slate-700/30 rounded-xl p-3">
+                                    <div class="w-10 h-10 bg-gradient-to-br from-emerald-500 to-green-500 rounded-lg flex items-center justify-center p-2">
+                                        <img src="images/agno.jpg" alt="Agno Agents" class="w-full h-full object-contain">
+                                    </div>
+                                    <span class="text-white font-medium">Agno Agents</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Large Language Models Block -->
+                        <div class="bg-white/5 backdrop-blur-2xl rounded-2xl p-6 border border-white/10 hover:bg-white/10 hover:border-white/20 transition-all duration-300 hover:scale-[1.02] shadow-xl lg:col-span-2">
+                            <div class="flex items-center gap-3 mb-6">
+                                <div class="w-10 h-10 bg-gradient-to-br from-violet-500 to-purple-500 rounded-lg flex items-center justify-center">
+                                    <i class="fas fa-robot text-white"></i>
+                                </div>
+                                <div>
+                                    <h3 class="text-white font-bold text-lg">Large Language Models</h3>
+                                    <p class="text-slate-400 text-xs">AI Model Integration</p>
+                                </div>
+                            </div>
+                            <div class="grid grid-cols-2 gap-3">
+                                <div class="flex items-center gap-3 bg-slate-700/30 rounded-xl p-3 hover:bg-slate-700/50 transition-all duration-300">
+                                    <div class="w-10 h-10 bg-white rounded-lg flex items-center justify-center p-2">
+                                        <img src="https://worldvectorlogo.com/logos/openai-2.svg" alt="OpenAI" class="w-full h-full object-contain">
+                                    </div>
+                                    <span class="text-white font-medium">OpenAI</span>
+                                </div>
+                                <div class="flex items-center gap-3 bg-slate-700/30 rounded-xl p-3 hover:bg-slate-700/50 transition-all duration-300">
+                                    <div class="w-10 h-10 bg-gradient-to-br from-violet-500 to-purple-500 rounded-lg flex items-center justify-center p-2">
+                                        <img src="https://cdn.jsdelivr.net/gh/lobehub/lobe-icons@latest/packages/static-png/dark/claude-color.png" alt="Claude" class="w-full h-full object-contain">
+                                    </div>
+                                    <span class="text-white font-medium">Claude</span>
+                                </div>
+                                <div class="flex items-center gap-3 bg-slate-700/30 rounded-xl p-3 hover:bg-slate-700/50 transition-all duration-300">
+                                    <div class="w-10 h-10 bg-white rounded-lg flex items-center justify-center p-2">
+                                        <img src="images/gemini.png" alt="Gemini" class="w-full h-full object-contain">
+                                    </div>
+                                    <span class="text-white font-medium">Gemini</span>
+                                </div>
+                                <div class="flex items-center gap-3 bg-slate-700/30 rounded-xl p-3 hover:bg-slate-700/50 transition-all duration-300">
+                                    <div class="w-10 h-10 bg-white rounded-lg flex items-center justify-center p-2">
+                                        <img src="https://cdn.jsdelivr.net/gh/lobehub/lobe-icons@latest/packages/static-png/dark/qwen-color.png" alt="Qwen" class="w-full h-full object-contain">
+                                    </div>
+                                    <span class="text-white font-medium">Qwen</span>
+                                </div>
+                                <div class="flex items-center gap-3 bg-slate-700/30 rounded-xl p-3 hover:bg-slate-700/50 transition-all duration-300">
+                                    <div class="w-10 h-10 bg-white rounded-lg flex items-center justify-center p-2">
+                                        <img src="https://uxwing.com/wp-content/themes/uxwing/download/brands-and-social-media/ollama-icon.svg" alt="Ollama" class="w-full h-full object-contain">
+                                    </div>
+                                    <span class="text-white font-medium">Ollama</span>
+                                </div>
+                                <div class="flex items-center gap-3 bg-slate-700/30 rounded-xl p-3 hover:bg-slate-700/50 transition-all duration-300">
+                                    <div class="w-10 h-10 bg-gradient-to-br from-red-500 to-pink-500 rounded-lg flex items-center justify-center p-2">
+                                        <img src="https://registry.npmmirror.com/@lobehub/icons-static-png/latest/files/dark/vllm-color.png" alt="vLLM" class="w-full h-full object-contain">
+                                    </div>
+                                    <span class="text-white font-medium">vLLM</span>
+                                </div>
+                                <div class="flex items-center gap-3 bg-slate-700/30 rounded-xl p-3 hover:bg-slate-700/50 transition-all duration-300">
+                                    <div class="w-10 h-10 bg-gradient-to-br from-yellow-500 to-orange-500 rounded-lg flex items-center justify-center p-2">
+                                        <img src="https://huggingface.co/front/assets/huggingface_logo-noborder.svg" alt="Hugging Face" class="w-full h-full object-contain">
+                                    </div>
+                                    <span class="text-white font-medium">Hugging Face</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Coding CLI Block -->
+                        <div class="bg-white/5 backdrop-blur-2xl rounded-2xl p-6 border border-white/10 hover:bg-white/10 hover:border-white/20 transition-all duration-300 hover:scale-[1.02] shadow-xl">
+                            <div class="flex items-center gap-3 mb-6">
+                                <div class="w-10 h-10 bg-gradient-to-br from-lime-500 to-green-500 rounded-lg flex items-center justify-center">
+                                    <i class="fas fa-terminal text-white"></i>
+                                </div>
+                                <div>
+                                    <h3 class="text-white font-bold text-lg">Coding CLI</h3>
+                                    <p class="text-slate-400 text-xs">Command Line Tools</p>
+                                </div>
+                            </div>
+                            <div class="space-y-3">
+                                <div class="flex items-center gap-3 bg-slate-700/30 rounded-xl p-3 hover:bg-slate-700/50 transition-all duration-300">
+                                    <div class="w-10 h-10 bg-gradient-to-br from-violet-500 to-purple-500 rounded-lg flex items-center justify-center p-2">
+                                        <img src="https://cdn.jsdelivr.net/gh/lobehub/lobe-icons@latest/packages/static-png/dark/claude-color.png" alt="Claude Code" class="w-full h-full object-contain">
+                                    </div>
+                                    <span class="text-white font-medium">Claude Code</span>
+                                </div>
+                                <div class="flex items-center gap-3 bg-slate-700/30 rounded-xl p-3 hover:bg-slate-700/50 transition-all duration-300">
+                                    <div class="w-12 h-12  rounded-lg flex items-center justify-center p-2">
+                                        <img src="images/aider.webp" alt="Claude Code" class="w-full h-full object-contain">
+                                    </div>
+                                    <span class="text-white font-medium">Aider Coder</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Deployment Block -->
+                        <div class="bg-white/5 backdrop-blur-2xl rounded-2xl p-6 border border-white/10 hover:bg-white/10 hover:border-white/20 transition-all duration-300 hover:scale-[1.02] shadow-xl">
+                            <div class="flex items-center gap-3 mb-6">
+                                <div class="w-10 h-10 bg-gradient-to-br from-orange-500 to-yellow-500 rounded-lg flex items-center justify-center">
+                                    <i class="fas fa-cloud text-white"></i>
+                                </div>
+                                <div>
+                                    <h3 class="text-white font-bold text-lg">Deployment</h3>
+                                    <p class="text-slate-400 text-xs">Cloud & Containers</p>
+                                </div>
+                            </div>
+                            <div class="space-y-3">
+                                <div class="flex items-center gap-3 bg-slate-700/30 rounded-xl p-3 hover:bg-slate-700/50 transition-all duration-300">
+                                    <div class="w-10 h-10 bg-gradient-to-br from-blue-500 to-cyan-500 rounded-lg flex items-center justify-center">
+                                        <i class="fab fa-docker text-white text-xl"></i>
+                                    </div>
+                                    <span class="text-white font-medium">Docker</span>
+                                </div>
+                                <div class="flex items-center gap-3 bg-slate-700/30 rounded-xl p-3 hover:bg-slate-700/50 transition-all duration-300">
+                                    <div class="w-10 h-10 bg-gradient-to-br from-orange-500 to-yellow-500 rounded-lg flex items-center justify-center">
+                                        <i class="fab fa-aws text-white text-xl"></i>
+                                    </div>
+                                    <span class="text-white font-medium">AWS</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Workflow Automation Block -->
+                        <div class="bg-white/5 backdrop-blur-2xl rounded-2xl p-6 border border-white/10 hover:bg-white/10 hover:border-white/20 transition-all duration-300 hover:scale-[1.02] shadow-xl lg:col-span-2">
+                            <div class="flex items-center gap-3 mb-6">
+                                <div class="w-10 h-10 bg-gradient-to-br from-orange-500 to-yellow-500 rounded-lg flex items-center justify-center">
+                                    <i class="fas fa-cloud text-white"></i>
+                                </div>
+                                <div>
+                                    <h3 class="text-white font-bold text-lg">Workflow Automation</h3>
+                                    <p class="text-slate-400 text-xs">Automation Tools</p>
+                                </div>
+                            </div>
+                            <div class="space-y-3">
+                                <div class="tech-item flex items-center gap-3 bg-slate-700/30 rounded-xl p-3">
+                                    <div class="w-10 h-10 bg-gradient-to-br from-red-500 to-pink-500 rounded-lg flex items-center justify-center p-2">
+                                        <img src="images/n8n.webp" alt="n8n" class="w-full h-full object-contain">
+                                    </div>
+                                    <span class="text-white font-medium">n8n</span>
+                                </div>
+                                <div class="tech-item flex items-center gap-3 bg-slate-700/30 rounded-xl p-3">
+                                    <div class="w-10 h-10 bg-gradient-to-br from-purple-500 to-blue-500 rounded-lg flex items-center justify-center p-2">
+                                        <img src="images/langflow.png" alt="Langflow" class="w-full h-full object-contain">
+                                    </div>
+                                    <span class="text-white font-medium">Langflow</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        
+                    </div>
+                </div>
+            </div>
+        </section>
+        </div>
+
+        <!-- Contact Section -->
+        <div class="max-w-6xl mx-auto px-6">
+        <section id="contact" class="section-content hidden h-full flex items-center justify-center px-8">
+            <div class="text-center">
+                <div class="bg-white/5 backdrop-blur-3xl rounded-[2rem] p-16 border border-white/10 shadow-[0_8px_32px_0_rgba(31,38,135,0.37)]">
+                    <div class="text-center mb-12">
+                        <h2 class="text-4xl font-black mb-6 bg-gradient-to-r from-pink-300 to-violet-300 bg-clip-text text-transparent">Let's Work Together</h2>
+                        <div class="w-24 h-2 bg-gradient-to-r from-pink-400 to-violet-400 mx-auto rounded-full shadow-lg mb-6"></div>
+                        <p class="text-xl text-white/80 leading-relaxed">Ready to bring your data science projects to life</p>
+                    </div>
+                    
+                    <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-12">
+                        <div class="bg-white/5 backdrop-blur-2xl rounded-3xl p-6 border border-white/10 hover:bg-white/10 hover:border-white/20 transition-all duration-300 hover:scale-105 shadow-xl group">
+                            <div class="w-14 h-14 bg-gradient-to-br from-blue-400/20 to-cyan-500/20 rounded-2xl flex items-center justify-center mx-auto mb-4 shadow-lg">
+                                <i class="fas fa-envelope text-blue-300 text-lg"></i>
+                            </div>
+                            <h3 class="text-lg font-bold mb-2 text-blue-200">Email</h3>
+                            <a href="mailto:durgeshreddygatla@gmail.com" class="text-cyan-300 hover:text-cyan-200 transition-colors font-medium">durgeshreddygatla@gmail.com</a>
+                        </div>
+                        <div class="bg-white/5 backdrop-blur-2xl rounded-3xl p-6 border border-white/10 hover:bg-white/10 hover:border-white/20 transition-all duration-300 hover:scale-105 shadow-xl group">
+                            <div class="w-14 h-14 bg-gradient-to-br from-green-400/20 to-emerald-500/20 rounded-2xl flex items-center justify-center mx-auto mb-4 shadow-lg">
+                                <i class="fas fa-map-marker-alt text-green-300 text-lg"></i>
+                            </div>
+                            <h3 class="text-lg font-bold mb-2 text-green-200">Location</h3>
+                            <p class="text-white/70 font-medium">Hyderabad, Telangana, India</p>
+                        </div>
+                        <div class="bg-white/5 backdrop-blur-2xl rounded-3xl p-6 border border-white/10 hover:bg-white/10 hover:border-white/20 transition-all duration-300 hover:scale-105 shadow-xl group">
+                            <div class="w-14 h-14 bg-gradient-to-br from-purple-400/20 to-pink-500/20 rounded-2xl flex items-center justify-center mx-auto mb-4 shadow-lg">
+                                <i class="fas fa-phone text-purple-300 text-lg"></i>
+                            </div>
+                            <h3 class="text-lg font-bold mb-2 text-purple-200">Phone</h3>
+                            <a href="tel:+919542508913" class="text-cyan-300 hover:text-cyan-200 transition-colors font-medium">+91-9542508913</a>
+                        </div>
+                    </div>
+                    
+                    <div class="flex justify-center items-center space-x-6">
+                        <a href="https://linkedin.com/in/durgeshreddy-gatla-633932206" target="_blank" class="w-14 h-14 bg-gradient-to-br from-blue-500/20 to-blue-600/20 rounded-2xl flex items-center justify-center border border-white/10 hover:bg-blue-500/30 hover:border-blue-400/30 hover:scale-110 transition-all duration-300 shadow-lg">
+                            <i class="fab fa-linkedin text-blue-300 text-xl"></i>
+                        </a>
+                        <a href="https://github.com/durgeshreddygatla" target="_blank" class="w-14 h-14 bg-gradient-to-br from-gray-500/20 to-gray-600/20 rounded-2xl flex items-center justify-center border border-white/10 hover:bg-gray-500/30 hover:border-gray-400/30 hover:scale-110 transition-all duration-300 shadow-lg">
+                            <i class="fab fa-github text-gray-300 text-xl"></i>
+                        </a>
+                        <a href="resume.pdf" target="_blank" class="px-8 py-4 bg-gradient-to-r from-cyan-500/30 to-blue-500/30 rounded-2xl border border-white/20 text-lg font-semibold hover:scale-105 hover:bg-gradient-to-r hover:from-cyan-500/40 hover:to-blue-500/40 transition-all duration-300 shadow-lg">
+                            <i class="fas fa-download mr-2"></i>Resume
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+        </div>
+        </div>
+    </main>
+
+    <script>
+        function showSection(sectionId) {
+            // Hide all sections with fade effect
+            document.querySelectorAll('.section-content').forEach(section => {
+                section.style.opacity = '0';
+                section.style.transform = 'translateY(20px)';
+                setTimeout(() => {
+                    section.classList.add('hidden');
+                }, 200);
+            });
+            
+            // Show selected section with fade effect
+            setTimeout(() => {
+                const targetSection = document.getElementById(sectionId);
+                targetSection.classList.remove('hidden');
+                setTimeout(() => {
+                    targetSection.style.opacity = '1';
+                    targetSection.style.transform = 'translateY(0)';
+                }, 50);
+            }, 200);
+            
+            // Update active nav button
+            document.querySelectorAll('.nav-btn').forEach(btn => {
+                btn.classList.remove('bg-white/20', 'text-white', 'border-white/30', 'shadow-lg');
+                btn.classList.add('text-white/80', 'border-white/10');
+            });
+            
+            event.target.classList.add('bg-white/20', 'text-white', 'border-white/30', 'shadow-lg');
+            event.target.classList.remove('text-white/80', 'border-white/10');
+        }
+        
+        // Initialize with smooth transitions
+        document.addEventListener('DOMContentLoaded', function() {
+            // Set initial styles for all sections
+            document.querySelectorAll('.section-content').forEach(section => {
+                section.style.transition = 'opacity 0.3s ease, transform 0.3s ease';
+            });
+            
+            // Show about section by default
+            const aboutBtn = document.querySelector('button[onclick="showSection(\'about\')"]');
+            aboutBtn.classList.add('bg-white/20', 'text-white', 'border-white/30', 'shadow-lg');
+            aboutBtn.classList.remove('text-white/80', 'border-white/10');
+        });
+    </script>
+</body>
+</html>
